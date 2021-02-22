@@ -1,0 +1,19 @@
+import { createStore } from 'redux';
+
+const initialState = {
+  botaoClicado: false,
+};
+const reduce = (state = initialState, action) => {
+  switch (action.type) {
+    case 'BOTAO_CLICADO': {
+      const newState = { ...state };
+      newState.botaoClicado = !newState.botaoClicado;
+      return newState;
+    }
+    default:
+      return state;
+  }
+};
+const store = createStore(reduce);
+
+export default store;
